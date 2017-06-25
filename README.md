@@ -92,6 +92,10 @@ Advanced Options
 `--start-ping, -s`        	Start the pinging thread first - some services send
                         	data first (eg. SSH)
 
+`--cookie, -C`        	Request cookies
+
+`--authentication, -t`    Basic authentication
+
 
 * See limitations
 
