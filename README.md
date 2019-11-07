@@ -102,12 +102,12 @@ Advanced Options
 example usage:
 	`python proxy.py -u http://10.3.3.1/conn.aspx -l 8000 -v`
 
-	# This will start a Local SOCKS Proxy Server at port 80000
+	# This will start a Local SOCKS Proxy Server at port 8000
 	# This connection will be wrapped over HTTP and unwrapped at the remote server
 
 	python proxy.py -u http://10.3.3.1/conn.aspx -l 8000 -x https://192.168.1.100:3128 -A -v
 
-	# This will start a Local SOCKS Proxy Server at port 80000
+	# This will start a Local SOCKS Proxy Server at port 8000
 	# It will connect through a Local Proxy (https://192.168.1.100:3128) that requires authentication
 	# to the remote Tunna webshell
 
@@ -139,7 +139,13 @@ LIMITATIONS / KNOWN BUGS / HACKS
 				* More than that created problems with bytes missing at the remote socket
 				eg: ruby proxy.rb -u http://10.3.3.1/conn.jsp -l 4444 -r 3389 -b 1024 -v
 
-		* Sockets not enabled by default php windows (IIS + PHP)
+		* Sockets not enabled by default:
+			php windows (IIS + PHP)
+			XAMPP Windows
+			php linux (PHP bultin web server/apache + PHP)
+		If you have the error Uncaught Error: Call to undefined function socket_create()
+		see https://stackoverflow.com/questions/6137823/fatal-error-call-to-undefined-function-socket-create
+		
 		
 		* Return cariages on webshells (outside the code): 
 			get sent on responses / get written on local socket --> corrupt the packets
